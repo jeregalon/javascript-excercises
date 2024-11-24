@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Manager</h1>
+    <p>Click the button below to start the program. Make sure to open the browser's console to interact with it.</p>
+    <button id="startButton">Start Program</button>
+    
+    <script>
+        document.getElementById("startButton").addEventListener("click", function() {
+            console.clear();
+            console.log("Welcome to the Contact Manager!");
+            console.log("Use the prompt to interact with the application.");
+
+        let contacts = [
+            {
+                name: "Maxwell Wright",
+                phone: "(0191) 719 6495",
+                email: "Curabitur.egestas.nunc@nonummyac.co.uk"
+            },
+            {
+                name: "Raja Villarreal",
+                phone: "0866 398 2895",
+                email: "posuere.vulputate@sed.com"
+            },
+            {
+                name: "Helen Richards",
+                phone: "0800 1111",
+                email: "libero@convallis.edu"
+            }
+        ];
+
+        let option = "";
+        do {
+            option = prompt(
+                "Choose an option: \n 1 - display first contact (type 'first') \n 2 - display last contact (type 'last') \n 3 - display all contacts (type 'all') \n 4 - add new contact (type 'add') \n 5 - sort contacts (type 'sort') \n 6 - exit the program (type 'quit')"
+            );
+
+            switch (option) {
+                case "first": {
+                    console.clear();
+                    console.log("First contact:");
+                    showContact(contacts, 0)
+                    break;
+                }
+                case "last": {
+                    console.clear();
+                    console.log("Last contact:");
+                    showContact(contacts, contacts.length - 1)
+                    break;
+                }
+                case "all": {
+                    console.clear();
+                    console.log("All contacts:");
+                    showAllContacts(contacts)
+                    break;
+                }
+                case "add": {
+                    let newName = prompt("What is your name?");
+                    let newPhone = prompt("What is your phone number?");
+                    let newEmail = prompt("What is your email address?");
+                    contacts = addNewContact(contacts, newName, newPhone, newEmail);
+                    break;
+                }
+                case "sort": {
+                    console.clear();
+                    console.log("Sorting contacts...");
+                    contacts = sortContacts(contacts, (a, b) => a.localeCompare(b));
+                    break;
+                }
+                case "quit": {
+                    console.clear();
+                    console.log("Exiting the program. Goodbye!");
+                    break;
+                }
+                default: {
+                    alert("No valid option.");
+                }
+            }
+        } while (option !== "quit");
+    });
+
+    function showContact(contacts, index) {
+        if (!(contacts instanceof Array)) return
+        else {
+            console.log(`${contacts[index].name} / ${contacts[index].phone} / ${contacts[index].email}`);
+        } return
+    }
+
+    function showAllContacts(contacts) {
+        if (!(contacts instanceof Array)) return
+        else {
+            for (let contact of contacts) {
+                console.log(`${contact.name} / ${contact.phone} / ${contact.email}`);
+            }
+        } return
+    }
+
+    function addNewContact(contacts, _name, _phone, _email) {
+        if (
+            !(contacts instanceof Array)
+        ) return contacts
+        else if (
+            !_name || !_phone || !_email
+        ) {
+            alert("All fields are required. No contact added.");
+            return contacts
+        } 
+        else {
+            contacts.push({
+                name: _name,
+                phone: _phone,
+                email: _email
+            });
+            alert("Contact added successfully!");
+        } 
+        console.clear();
+        return contacts
+    }
+
+    function sortContacts(contacts, compareFunction) {
+        if (!(contacts instanceof Array) || typeof compareFunction !== 'function') {
+            console.error("Invalid parameters passed to sortContacts.");
+            return contacts;
+        }
+
+        let sortOption = prompt(
+            "Choose a sorting option: \n 1 - by name \n 2 - by phone \n 3 - by email"
+        );
+
+        switch (sortOption) {
+            case "1": {
+                console.log("Sorting by name...");
+                contacts.sort((a, b) => compareFunction(a.name.toLowerCase(), b.name.toLowerCase()));
+                break;
+            }
+            case "2": {
+                console.log("Sorting by phone...");
+                contacts.sort((a, b) => compareFunction(a.phone.replace(/\D/g, ''), b.phone.replace(/\D/g, '')));
+                break;
+            }
+            case "3": {
+                console.log("Sorting by email...");
+                contacts.sort((a, b) => compareFunction(a.email.toLowerCase(), b.email.toLowerCase()));
+                break;
+            }
+            default: {
+                console.error("Invalid sorting option.");
+                return contacts;
+            }
+        }
+
+        console.log("Contacts sorted successfully!");
+        showAllContacts(contacts); // Llama a la función para mostrar los contactos ordenados.
+        return contacts;
+    }
+
+
+    </script>
+</body>
+</html>
