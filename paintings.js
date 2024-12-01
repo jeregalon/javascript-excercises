@@ -1,3 +1,6 @@
+/*Manejo de una lista de pinturas famosas utilizando la clase Painting, que hereda
+de un objeto instanciado de la clase Showable*/
+
 let Showable = function() {
     this.show = function() {
         for (let key in this) {

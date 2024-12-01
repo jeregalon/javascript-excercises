@@ -1,3 +1,6 @@
+/*Devuelve varias filas del triángulo de Pascal según el número proporcionado
+por el usuario. También se puede hacer mediante un iterador */
+
 class Pascal {
     constructor(range = Infinity) {
         this.range = range;

@@ -1,3 +1,6 @@
+/*Imprime varios números de la serie de Fibonacci, mediante la invocación
+de la clase Fibonacci o utilizando un iterador*/
+
 class Fibonacci {
     constructor(range = Infinity) {
         this.range = range;

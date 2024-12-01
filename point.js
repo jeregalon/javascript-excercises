@@ -1,3 +1,8 @@
+/** Mediante las clases Point y Line se construye una figura utilizando las
+ * coordenadas x, y, de los puntos. Se implementa el cálculo del área de la
+ * figura utilizando la fórmula de Gauss.
+ */
+
 class Point {
     constructor(x, y) {
         this.x = x

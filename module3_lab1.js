@@ -1,3 +1,7 @@
+/*Crea una lista de m números que van desde el 0 al n-1. Mediante las
+variables berepeated y besorted se puede obtener la lista ordenada
+y/o sin números repetidos*/
+
 function repeat(n, m, berepeated, besorted) {
     if (berepeated) {
         let numbers = []
@@ -23,6 +27,6 @@ function repeat(n, m, berepeated, besorted) {
 }
     
 
-console.log(repeat(5, 6, true, false))
+console.log(repeat(5, 5, false, false))
 
 

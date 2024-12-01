@@ -1,3 +1,10 @@
+/** Manejo de usuarios de una escuela utilizando las clases Teacher y Student, las cuales
+ * heredan de User. Las instancias de estas clases almacenan un nombre, un apellido, una
+ * dirección de email y un rol (maestro, alumno u otro). Cada uno tiene, además, una lista 
+ * de cursos que imparte o desea recibir, además de que se pueden enviar mensajes entre
+ * ellos.
+ */
+
 let users = []
 
 class Tutoring {

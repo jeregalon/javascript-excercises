@@ -1,3 +1,6 @@
+/*Calcula el mínimo común múltiplo de dos o más números utilizando el
+algoritmo de Euclides. Los números deben ser proporcionados dentro de un arreglo*/
+
 function MCD(n1, n2) {
     let numbers = [n1, n2]
     numbers = numbers.sort((a, b) => b - a)

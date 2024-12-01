@@ -1,3 +1,7 @@
+/*Manejo de usuarios mediante la clase User. Los usuarios se guardan en
+la variable users y cada uno de ellos es un objeto donde se guardan un
+nombre, un apellido y una dirección de email*/
+
 let users = new Map()
 
 class User {
