@@ -16,7 +16,7 @@ function repeat(n, m, berepeated, besorted) {
             while (numbers.size < m) {
                 numbers.add(Math.floor(Math.random() * n))
             }
-        }
+        } else console.log("Tamaño del array demasiado largo")
         let numbersArray = []
         if (besorted) {
             numbers.forEach(n => numbersArray.push(n))
@@ -27,6 +27,6 @@ function repeat(n, m, berepeated, besorted) {
 }
     
 
-console.log(repeat(5, 5, false, false))
+console.log(...repeat(4, 5, true, false))
 
 
